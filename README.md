@@ -6,9 +6,9 @@ Why is go so hard to model? In the context of tree search, the branching factor 
 
 
 ### Asumptions
-- We're using the area scoring method rather than teritotal.
+- Area scoring rather than teritotal.
 - Komi, white gets 7.5 under area scoring for going second.
-- Opening book used.
+- Self Capture is prohibited
 - Benchmarking will be done using other go models to estimate the ranking the model would be granted in professional go setting.
 
 
