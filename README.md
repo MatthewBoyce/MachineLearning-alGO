@@ -37,6 +37,14 @@ Width - Alpha beta pruning, evaluate and put a score against the outcome of each
 
 Depth - Evaluate how strong your position is based on percentage of net pieces you control and use this to determine how deep you traverse the decision tree.
 
+<img src="https://github.com/MatthewBoyce/alGO/blob/main/images/v2.gif?raw=true"/>
+
+From playing a few games against this pruned tree search min/max model i had a few revelations:
+
+- Firstly the first few moves took a long time to get a response, sometimes 30 seconds or more. As the game plays on however and the choices become more obvious to the pruning rules the game moves into a more real time view and late game it feels very smooth. 
+
+- Secondly, while the game put up a good fight and definatly 'feels' intellegent im able to abuse the agorithm, taking an early positon in the middle of the board causes the first few turns to be wasted as the bot spreads out its pecices too much until it becomes more clear where the most benifical place to put them is.
+
 ## Version 3: Monte Carlo Tree Search (Mini/Maxing)
 
 
