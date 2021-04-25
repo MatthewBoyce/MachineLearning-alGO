@@ -14,9 +14,9 @@ Why is go so hard to model? In the context of tree search, the branching factor 
 
 ## Version 1: Naive 
 
-Starting with the most basic, version 1 is simply a naive bot that selects a random legal move with only a hard coded helper to prevent it from taking its own eyes. This represents our zero baseline, every future version should easily beat. Here is a gif to represent two version one algorithms playing against each other in real time. 
+Starting with the most basic, version 1 is simply a naive bot that selects a random legal move with only a hard coded helper to prevent it from taking its own eyes. This represents our zero baseline that every future version should easily beat. Here is a gif to represent two version one algorithms playing against each other in real time. 
 
-(/images/v1.gif "version 1 vs version 1")
+<img src="https://github.com/MatthewBoyce/alGO/blob/main/images/v1.gif?raw=true"/>
 
 
 
