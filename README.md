@@ -1,5 +1,7 @@
 # alGO
 
+*Credit, all of these algorithms and even the go interface is built up using books, none of this is original research just a showcase of some of the great work done in this space*
+
 Go had remained for a number of years as a final frontier of classical board games for machine learning researchers to conquer. In this repository i will apply a number of historical techniques and build up to the same models that are used today to beat world champions. Games are great because they simplify the complexities of real life, so all the attention can be on the algorithm. 
 
 Why is go so hard to model? In the context of tree search, the branching factor for chess is about 30, the first turn for example gives the user only 20 legal branches to consider. By comparison, go's first move branching factor is 361! A mote carlo esc approach would need to evaluate 4 billion positions just to find the optimal first four moves. As we will see with the older and less technical models; relying on raw compute wont cut it, we need to embed 'intuition' as decisions need to be made with incomplete sequences. 
@@ -24,18 +26,18 @@ You can run this bot vs bot simulation yourself using version-1/bot_v_bot.py, if
 
 Go, like chess is a deterministic perfect information game, where one move is theoretically the 'best'. Min/maxing is quite a simple concept, your trying to get the best score you can while assuming your rival is trying is trying to minimize your score. Assuming you both have the same knowledge; ie the rival can calculate their own optimum move, what is the best move for you to make?
 
-Roughly a minmax tree search algorithm  means looping over every possible legal move and applying the following hursitics:
+Roughly a minmax tree search algorithm  means looping over every possible legal move and applying the following heuristics:
 
 1. See if you can win on the next move. If so, play that move.
 2. If not, see if your opponent can win on the next move. If so, block that.
 3. If not, see if you can force a win in two moves. If so, play to set that up.
 4. If not, see if your opponent could set up a two-move win on their next move.
 
-For a game like tic-tac-toe, this is easy since you can fully iterate through all the nested branches of the tree, however there are too many possibilities to compute for Go. Since running the algorithm would take several years even on on a super computer, the branches need to be pruned. This can be done both on a with and depth basis.
+For a game like tic-tac-toe, this is easy since you can fully iterate through all the nested branches of the tree, however, there are too many possibilities to compute for Go. Since running the algorithm would take several years even on a supercomputer, the branches need to be pruned. This can be done both on a with and depth basis.
 
-Width - Alpha beta pruning, evaluate and put a score against the outcome of each decision on the game state. Use this score to rule out branches early on and only search through the higher scoring outcome branches. The alpha branch is whatever the current best branch while beta branches are less optimal and pruned.
+*Width* - Alpha beta pruning, evaluate and put a score against the outcome of each decision on the game state. Use this score to rule out branches early on and only search through the higher scoring outcome branches. The alpha branch is whatever the current best branch while beta branches are less optimal and pruned.
 
-Depth - Evaluate how strong your position is based on percentage of net pieces you control and use this to determine how deep you traverse the decision tree.
+*Depth* - Evaluate how strong your position is based on percentage of net pieces you control and use this to determine how deep you traverse the decision tree.
 
 <img src="https://github.com/MatthewBoyce/alGO/blob/main/images/v2.gif?raw=true"/>
 
@@ -43,7 +45,7 @@ From playing a few games against this pruned tree search min/max model i had a f
 
 - Firstly the first few moves took a long time to get a response, sometimes 30 seconds or more. As the game plays on however and the choices become more obvious to the pruning rules the game moves into a more real time view and late game it feels very smooth. 
 
-- Secondly, while the game put up a good fight and definatly 'feels' intellegent im able to abuse the agorithm, taking an early positon in the middle of the board causes the first few turns to be wasted as the bot spreads out its pecices too much until it becomes more clear where the most benifical place to put them is.
+- Secondly, while the game put up a good fight and definitely 'feels' intelligent I can abuse the algorithm, taking an early position in the middle of the board causes the first few turns to be wasted as the bot spreads out its pieces too much until it becomes more clear where the most beneficial place to put them is.
 
 ## Version 3: Monte Carlo Tree Search (Mini/Maxing)
 
