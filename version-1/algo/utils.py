@@ -1,6 +1,5 @@
 import platform
 import subprocess
-
 import numpy as np
 
 # tag::print_utils[]
@@ -8,9 +7,9 @@ from algo import gotypes
 
 COLS = 'ABCDEFGHJKLMNOPQRST'
 STONE_TO_CHAR = {
-    None: ' . ',
-    gotypes.Player.black: ' x ',
-    gotypes.Player.white: ' o ',
+    None: ' O ',
+    gotypes.Player.black: ' B ',
+    gotypes.Player.white: ' W ',
 }
 
 
@@ -20,8 +19,10 @@ def print_move(player, move):
     elif move.is_resign:
         move_str = 'resigns'
     else:
-        move_str = '%s%d' % (COLS[move.point.col - 1], move.point.row)
+        move_str = '%s%d' % (COLS[move.point.col - 1], move.point.row)    
+
     print('%s %s' % (player, move_str))
+
 
 
 def print_board(board):
